@@ -2,9 +2,10 @@ FROM tinygo/tinygo:latest as build
 
 WORKDIR /build
 COPY . .
-CMD "/bin/sh -c 'tinygo build -o log_ext.wasm -scheduler=none -target=wasi main.go'"
-CMD "pwd"
+RUN tinygo build -o log_ext.wasm -scheduler=none -target=wasi main.go
 
 FROM scratch
 
-COPY --from=build /build/log_ext.wasm .
+COPY --from=build /build/log_ext.wasm /build/log_ext.wasm
+
+WORKDIR /build

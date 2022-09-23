@@ -12,7 +12,7 @@ docker compose run build
 ## Store file inside container
 
 ```shell
-docker build -t vrs/envoy-wasm-ext .
+docker build -t envoy-wasm-ext-tcp-log .
 ```
 
 ## Configuration Example _(envoy.yml)_
@@ -37,7 +37,7 @@ static_resources:
                     code:
                       local:
                         # Place *.wasm filename below
-                        filename: ".build/log_ext.wasm"
+                        filename: "log_ext.wasm"
 ```
 
 ## FYI
